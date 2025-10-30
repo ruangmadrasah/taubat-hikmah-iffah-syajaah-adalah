@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Interaktif: Akhlak Mulia</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat font Inter (Mirip Google Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+    <!-- Memuat html2canvas untuk fitur unduh hasil -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        /* Mengatur font default dan scroll-behavior */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff; /* Latar belakang putih */
+            color: #374151; /* gray-700 */
+        }
+        
+        /* Styling untuk Tab Interaktif */
+        .tab-button.active {
+            border-color: #3b82f6; /* blue-500 */
+            background-color: #dbeafe; /* blue-100 */
+            color: #1e40af; /* blue-800 */
+        }
+        .tab-content {
+            display: none; /* Sembunyikan semua konten tab secara default */
+        }
+        .tab-content.active {
+            display: block; /* Tampilkan hanya konten tab yang aktif */
+        }
+        
+        /* Styling tambahan untuk kuis */
+        .quiz-option {
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+        .quiz-option.selected {
+            background-color: #dbeafe; /* blue-100 */
+            border-color: #3b82f6; /* blue-500 */
+        }
+        .quiz-option:hover {
+            background-color: #eff6ff; /* blue-50 */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="text-center py-12 md:py-16 px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-3">Materi Interaktif Akhlak Mulia</h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Menjelajahi makna dan penerapan Taubat, Hikmah, 'Iffah, Syaja'ah, dan 'Adalah dalam kehidupan.
+        </p>
+    </header>
+
+    <!-- Kontainer Materi Interaktif -->
+    <main class="container mx-auto max-w-4xl p-4 md:p-8">
+        
+        <!-- Navigasi Tab -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+            <button class="tab-button active flex items-center gap-2 py-3 px-5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold transition-all duration-300" data-tab="taubat">
+                <!-- Ikon Taubat (Undo/Return) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4H9"/></svg>
+                Taubat
+            </button>
+            <button class="tab-button flex items-center gap-2 py-3 px-5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold transition-all duration-300" data-tab="hikmah">
+                <!-- Ikon Hikmah (Lightbulb) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.7.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                Hikmah
+            </button>
+            <button class="tab-button flex items-center gap-2 py-3 px-5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold transition-all duration-300" data-tab="iffah">
+                <!-- Ikon 'Iffah (ShieldCheck) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                'Iffah
+            </button>
+            <button class="tab-button flex items-center gap-2 py-3 px-5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold transition-all duration-300" data-tab="syajaah">
+                <!-- Ikon Syaja'ah (Bolt) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Syaja'ah
+            </button>
+            <button class="tab-button flex items-center gap-2 py-3 px-5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold transition-all duration-300" data-tab="adalah">
+                <!-- Ikon 'Adalah (Gavel) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0-.83-.83-.83-2.17 0-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
+                'Adalah
+            </button>
+        </div>
+
+        <!-- Konten Tab -->
+        <div class="bg-white rounded-xl shadow-xl p-6 md:p-10 border border-gray-100 min-h-[300px]">
+            
+            <!-- Konten Taubat (Pastel Biru) -->
+            <div id="taubat" class="tab-content active">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center border-4 border-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4H9"/></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-blue-900">Taubat (Kembali)</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-6">Taubat adalah kesadaran penuh untuk kembali kepada Allah SWT dari perbuatan dosa, disertai penyesalan dan tekad kuat untuk tidak mengulanginya.</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong>Pengertian:</strong> Secara harfiah berarti "kembali". Ini adalah proses menyadari kesalahan, menyesalinya, dan berbalik arah menuju ketaatan.</li>
+                    <li><strong>Syarat Taubat Nasuha:</strong> (1) Ikhlas, (2) Menyesali dosa (nadam), (3) Berhenti dari perbuatan maksiat, (4) Bertekad kuat ('azam) tidak mengulangi.</li>
+                    <li><strong>Jika terkait Manusia:</strong> Wajib mengembalikan hak (jika mencuri) atau meminta maaf (jika mengghibah).</li>
+                    <li><strong>Hikmah:</strong> Membersihkan jiwa, membuka pintu rahmat, dan memberikan ketenangan batin.</li>
+                </ul>
+            </div>
+            
+            <!-- Konten Hikmah (Pastel Hijau) -->
+            <div id="hikmah" class="tab-content">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-green-100 flex items-center justify-center border-4 border-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.7.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-green-900">Hikmah (Kebijaksanaan)</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-6">Hikmah adalah kemampuan untuk memahami kebenaran, menempatkan sesuatu pada tempatnya, dan bertindak dengan cara yang paling tepat dan bijaksana.</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong>Pengertian:</strong> Kebijaksanaan yang mendalam, seringkali didapat dari ilmu dan pengalaman, yang memampukan seseorang melihat inti dari suatu permasalahan.</li>
+                    <li><strong>Ciri Orang Bijak:</strong> Berbicara berdasarkan ilmu, diam untuk berpikir, dan mengambil keputusan yang adil dan proporsional.</li>
+                    <li><strong>Contoh:</strong> Mampu menasihati orang lain dengan cara yang baik tanpa menyakiti, mengambil pelajaran dari musibah.</li>
+                    <li><strong>Manfaat:</strong> Menghindari konflik, mengambil keputusan terbaik, dan dihormati orang lain.</li>
+                </ul>
+            </div>
+            
+            <!-- Konten 'Iffah (Pastel Pink) -->
+            <div id="iffah" class="tab-content">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center border-4 border-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9d174d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-pink-900">'Iffah (Menjaga Diri)</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-6">'Iffah adalah sikap untuk menjaga kesucian dan kehormatan diri dari segala hal yang dapat merendahkan martabat, baik dalam urusan harta maupun syahwat.</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong>Pengertian:</strong> Kemampuan mengendalikan diri (self-control) untuk menjauhi perbuatan yang tidak pantas atau haram.</li>
+                    <li><strong>Bentuk 'Iffah:</strong> Menjaga pandangan, menjaga lisan dari kata-kata kotor, menjaga kehormatan (syahwat), dan menjaga diri dari meminta-minta atau mengambil yang bukan haknya.</li>
+                    <li><strong>Contoh:</strong> Seorang pemuda yang menundukkan pandangannya, seorang pejabat yang menolak suap.</li>
+                    <li><strong>Manfaat:</strong> Meninggikan martabat, menjaga keharmonisan sosial, dan mendapat kepercayaan.</li>
+                </ul>
+            </div>
+
+            <!-- Konten Syaja'ah (Pastel Merah/Oranye) -->
+            <div id="syajaah" class="tab-content">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-red-100 flex items-center justify-center border-4 border-white shadow-md">
+                        <!-- Ikon Syaja'ah (Bolt) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-red-900">Syaja'ah (Keberanian)</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-6">Syaja'ah adalah keteguhan hati dan keberanian untuk membela kebenaran secara konsisten, didasari oleh pertimbangan akal sehat dan keikhlasan.</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong>Pengertian:</strong> Keberanian yang terkendali, bukan nekat (tahawwur) atau pengecut (jubn). Ia berada di tengah-tengah.</li>
+                    <li><strong>Bentuk Syaja'ah:</strong> Berani mengakui kesalahan, berani mengatakan kebenaran di depan penguasa zalim, dan berani mengendalikan hawa nafsu saat marah.</li>
+                    <li><strong>Contoh:</strong> Seorang siswa yang berani melaporkan kecurangan saat ujian demi kebenaran.</li>
+                    <li><strong>Manfaat:</strong> Menegakkan kebenaran, menumbuhkan jiwa ksatria, dan menginspirasi orang lain.</li>
+                </ul>
+            </div>
+
+            <!-- Konten 'Adalah (Pastel Indigo/Ungu) -->
+            <div id="adalah" class="tab-content">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center border-4 border-white shadow-md">
+                        <!-- Ikon 'Adalah (Gavel) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3730a3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0-.83-.83-.83-2.17 0-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-indigo-900">'Adalah (Keadilan)</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-6">'Adalah (adil) adalah sikap menempatkan sesuatu pada tempatnya (proporsional), memberikan hak kepada yang berhak menerimanya tanpa memihak.</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong>Pengertian:</strong> Memberlakukan sesuatu secara proporsional. Adil tidak selalu berarti "sama rata" (musawah).</li>
+                    <li><strong>Bentuk Keadilan:</strong> Adil terhadap Allah (tauhid), adil terhadap diri sendiri (tidak zalim), adil terhadap sesama manusia, dan adil terhadap makhluk lain.</li>
+                    <li><strong>Contoh:</strong> Seorang guru memberi nilai sesuai kemampuan siswa, bukan karena kedekatan personal.</li>
+                    <li><strong>Manfaat:</strong> Menciptakan keharmonisan sosial, mencegah konflik, dan mendatangkan kepercayaan publik.</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Tombol Mulai Kuis -->
+    <section class="container mx-auto max-w-4xl p-4 md:p-8 text-center">
+        <button id="startQuizBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg shadow-lg text-xl transition-transform transform hover:scale-105">
+            Mulai Kuis Akhlak Mulia
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 text-gray-500 bg-gray-50 mt-12">
+        <p>Materi interaktif untuk pengembangan karakter.</p>
+    </footer>
+
+    <!-- Modal: Informasi Pengguna -->
+    <div id="userInfoModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-40">
+        <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 text-center">Informasi Peserta</h2>
+            <form id="userInfoForm">
+                <div class="mb-4">
+                    <label for="userName" class="block text-sm font-bold text-gray-700 mb-2">Nama Lengkap:</label>
+                    <input type="text" id="userName" name="userName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label for="userClass" class="block text-sm font-bold text-gray-700 mb-2">Kelas:</label>
+                    <input type="text" id="userClass" name="userClass" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button id="submitInfoBtn" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105">
+                    Mulai
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Kuis -->
+    <div id="quizModal" class="hidden fixed inset-0 bg-gray-50 p-4 md:p-8 overflow-y-auto z-50">
+        <div class="container mx-auto max-w-3xl">
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-2xl border border-gray-100">
+                <div class="flex justify-between items-center mb-4">
+                    <span id="questionCounter" class="text-sm font-semibold text-gray-600">Soal 1 dari 20</span>
+                    <span id="quizTimer" class="text-sm font-bold text-red-600"></span> <!-- Timer bisa ditambahkan di sini -->
+                </div>
+                
+                <h2 id="questionText" class="text-xl md:text-2xl font-bold text-gray-900 mb-6" style="line-height: 1.6;">
+                    Pertanyaan akan dimuat di sini...
+                </h2>
+                
+                <div id="optionsContainer" class="space-y-4">
+                    <!-- Opsi jawaban akan di-generate oleh JavaScript -->
+                </div>
+                
+                <div class="mt-8 flex justify-between">
+                    <button id="prevQuestionBtn" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg shadow-lg text-base transition-transform transform hover:scale-105 hidden">
+                        Sebelumnya
+                    </button>
+                    <button id="nextQuestionBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg text-base transition-transform transform hover:scale-105">
+                        Selanjutnya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Hasil Kuis -->
+    <div id="resultModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-40">
+        <div class="w-full max-w-lg">
+            <!-- ID "resultCard" digunakan untuk tangkapan layar -->
+            <div id="resultCard" class="bg-white p-8 rounded-lg shadow-2xl text-center border-t-8 border-blue-500">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">Kuis Selesai!</h2>
+                <p class="text-lg text-gray-700 mb-2">Hasil untuk:</p>
+                <p id="resultName" class="text-2xl font-bold text-blue-700"></p>
+                <p id="resultClass" class="text-md text-gray-600 mb-6"></p>
+                
+                <p class="text-lg text-gray-700 mb-2">Skor Akhir Anda:</p>
+                <h1 id="resultScore" class="text-7xl font-extrabold text-gray-900 mb-8">100</h1>
+            </div>
+            
+            <!-- Tombol-tombol di luar kartu hasil -->
+            <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
+                <button id="downloadBtn" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105">
+                    Unduh Hasil (PNG)
+                </button>
+                <button id="waBtn" class="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105">
+                    Kirim Hasil
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // --- SKRIP UNTUK TAB INTERAKTIF ---
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.dataset.tab;
+            
+            // Nonaktifkan semua tombol
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-100', 'border-blue-500', 'text-blue-800');
+                btn.classList.add('border-gray-200', 'text-gray-700');
+            });
+            // Aktifkan tombol yang diklik
+            button.classList.add('active', 'bg-blue-100', 'border-blue-500', 'text-blue-800');
+            button.classList.remove('border-gray-200', 'text-gray-700');
+            
+            // Sembunyikan semua konten
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            // Tampilkan konten yang ditargetkan
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+
+
+    // --- BANK SOAL BARU (50 SOAL HOTS AKHLAK MULIA) ---
+    const quizData = [
+        // Taubat (10 Soal)
+        {
+            question: "Perbedaan esensial antara 'Taubat Nasuha' (Taubat yang murni) dengan sekadar penyesalan biasa adalah....",
+            options: [
+                "A. Taubat Nasuha hanya dilakukan di bulan Ramadhan, sedangkan penyesalan bisa kapan saja.",
+                "B. Taubat Nasuha mencakup tiga elemen inti: penyesalan mendalam (nadam), berhenti total (iqla'), dan tekad kuat ('azam) untuk tidak mengulangi, sedangkan penyesalan biasa mungkin hanya emosi sesaat.",
+                "C. Taubat Nasuha harus disaksikan oleh seorang ulama besar, sedangkan penyesalan tidak perlu.",
+                "D. Taubat Nasuha hanya untuk dosa-dosa besar, sedangkan penyesalan untuk dosa kecil.",
+                "E. Taubat Nasuha mengharuskan pelakunya berpuasa 40 hari, sedangkan penyesalan tidak."
+            ],
+            correct: 1
+        },
+        {
+            question: "Seseorang yang mencuri uang temannya, kemudian ia menangis dan shalat taubat, namun tidak mengembalikan uang tersebut. Menurut syarat taubat, prosesnya belum sempurna karena ia melewatkan....",
+            options: [
+                "A. Syarat 'azam (tekad kuat), karena ia pasti akan mengulanginya.",
+                "B. Syarat ikhlas, karena taubatnya tidak tulus.",
+                "C. Syarat yang berkaitan dengan hak adami (hak sesama manusia), yaitu kewajiban mengembalikan hak yang dizalimi.",
+                "D. Syarat nadam (menyesal), karena tangisannya dianggap pura-pura.",
+                "E. Syarat iqla' (berhenti), karena ia belum berhenti dari perbuatan mencuri."
+            ],
+            correct: 2
+        },
+        {
+            question: "Makna harfiah dari 'Taubat' adalah 'kembali'. Dalam konteks spiritual, ini paling tepat diartikan sebagai....",
+            options: [
+                "A. Kembali ke masa lalu untuk memperbaiki kesalahan yang telah terjadi.",
+                "B. Kembali menjadi suci seperti bayi yang baru lahir tanpa dosa sama sekali.",
+                "C. Kembali dari jalan yang salah (maksiat) menuju jalan yang benar (ketaatan kepada Allah).",
+                "D. Kembali ke kampung halaman untuk meminta maaf kepada orang tua.",
+                "E. Kembali mengulang-ulang istighfar sebanyak seribu kali setiap hari."
+            ],
+            correct: 2
+        },
+        {
+            question: "Seseorang yang bertaubat dari ghibah (menggunjing) akan merasa taubatnya sempurna ketika ia telah menyesal, berhenti, bertekad tidak mengulangi, dan....",
+            options: [
+                "A. Melakukan puasa denda (kafarat) selama tiga hari berturut-turut.",
+                "B. Meminta maaf secara langsung kepada orang yang digunjingkan jika memungkinkan dan tidak menimbulkan mudarat lebih besar.",
+                "C. Bersedekah atas nama orang yang digunjingkan.",
+                "D. Melupakan kejadian itu dan menganggapnya tidak pernah terjadi.",
+                "E. Membaca Al-Qur'an satu juz penuh."
+            ],
+            correct: 1
+        },
+        {
+            question: "Manfaat psikologis terbesar bagi seseorang yang telah melakukan taubat nasuha adalah....",
+            options: [
+                "A. Ia akan merasa lebih unggul daripada orang lain yang masih berbuat dosa.",
+                "B. Ia akan melupakan semua dosa masa lalunya secara instan.",
+                "C. Ia mendapatkan ketenangan batin (sakinah) dan optimisme terhadap rahmat Allah, menggantikan rasa bersalah yang menghancurkan.",
+                "D. Ia akan kebal dari godaan dosa yang sama di masa depan.",
+                "E. Ia akan langsung mendapatkan rezeki yang melimpah sebagai ganti dosanya."
+            ],
+            correct: 2
+        },
+        {
+            question: "Sikap menunda-nunda taubat (misalnya: 'saya akan taubat nanti jika sudah tua') sangat berbahaya karena....",
+            options: [
+                "A. Taubat hanya diterima jika dilakukan di usia muda.",
+                "B. Tidak ada yang menjamin usia seseorang akan sampai di hari esok, dan pintu taubat tertutup saat ajal tiba.",
+                "C. Dosa yang ditumpuk akan lebih sulit diampuni oleh Allah.",
+                "D. Manusia akan lupa cara bertaubat jika sudah terlalu lama bermaksiat.",
+                "E. Taubat di usia tua memerlukan biaya yang lebih besar."
+            ],
+            correct: 1
+        },
+        {
+            question: "Seorang koruptor mengembalikan semua uang korupsinya ke negara, namun ia lakukan itu karena takut tertangkap KPK, bukan karena takut pada Allah. Taubatnya cacat pada aspek....",
+            options: [
+                "A. 'Azam (tekad).",
+                "B. Iqla' (berhenti).",
+                "C. Ikhlas (ketulusan niat).",
+                "D. Nadam (penyesalan).",
+                "E. Mengembalikan hak."
+            ],
+            correct: 2
+        },
+        {
+            question: "Ketika seseorang bertaubat namun mengulangi lagi dosanya, lalu bertaubat lagi dengan sungguh-sungguh, sikap yang benar adalah....",
+            options: [
+                "A. Ia harus putus asa karena taubatnya yang pertama jelas tidak diterima.",
+                "B. Ia harus terus bertaubat setiap kali jatuh dalam dosa, selama taubatnya tulus dan tidak mempermainkan.",
+                "C. Ia harus membayar denda (fidyah) atas taubatnya yang gagal.",
+                "D. Ia tidak boleh bertaubat lagi untuk dosa yang sama.",
+                "E. Ia harus mengumumkan dosanya di depan umum agar malu."
+            ],
+            correct: 1
+        },
+        {
+            question: "Syarat taubat 'iqla'' (berhenti) berarti....",
+            options: [
+                "A. Mengurangi intensitas perbuatan dosa secara bertahap.",
+                "B. Mengganti perbuatan dosa dengan dosa lain yang lebih ringan.",
+                "C. Berhenti total dan seketika dari perbuatan maksiat yang sedang dilakukan.",
+                "D. Berjanji dalam hati akan berhenti suatu saat nanti.",
+                "E. Berhenti sementara selama bulan Ramadhan saja."
+            ],
+            correct: 2
+        },
+        {
+            question: "Pintu taubat dikatakan tertutup ketika....",
+            options: [
+                "A. Seseorang melakukan dosa besar seperti syirik.",
+                "B. Seseorang mencapai usia 40 tahun.",
+                "C. Nyawa sudah sampai di kerongkongan (sakaratul maut) atau matahari terbit dari barat.",
+                "D. Seseorang mengulangi dosanya lebih dari tiga kali.",
+                "E. Dosa yang dilakukan telah diketahui oleh banyak orang."
+            ],
+            correct: 2
+        },
+        // Hikmah (10 Soal)
+        {
+            question: "Sikap hikmah (kebijaksanaan) paling tepat digambarkan sebagai....",
+            options: [
+                "A. Kemampuan untuk menghafal banyak dalil dan teori tanpa harus memahaminya.",
+                "B. Kemampuan untuk memenangkan perdebatan dengan cara apapun.",
+                "C. Kemampuan untuk mengambil keputusan yang tepat, proporsional, dan adil dalam situasi yang kompleks.",
+                "D. Sikap yang selalu diam dan tidak pernah berbicara dalam forum apapun.",
+                "E. Keberanian untuk menyerang musuh tanpa rasa takut."
+            ],
+            correct: 2
+        },
+        {
+            question: "Seorang guru menegur siswa yang menyontek. Alih-alih memarahinya di depan kelas, guru tersebut memanggilnya secara pribadi dan menasihatinya. Tindakan guru ini mencerminkan....",
+            options: [
+                "A. Sikap 'adalah (adil), karena ia menghukum yang salah.",
+                "B. Sikap syaja'ah (berani), karena ia berani menegur.",
+                "C. Sikap hikmah (bijaksana), karena ia memilih cara terbaik untuk menasihati tanpa mempermalukan.",
+                "D. Sikap 'iffah (menjaga diri), karena ia menjaga kehormatan.",
+                "E. Sikap taubat (kembali), karena ia ingin siswanya bertaubat."
+            ],
+            correct: 2
+        },
+        {
+            question: "Mendapatkan musibah (misal kehilangan pekerjaan) namun tetap tenang dan mengambil pelajaran darinya untuk memperbaiki diri adalah wujud dari....",
+            options: [
+                "A. Keputusasaan terhadap takdir.",
+                "B. Sikap hikmah dalam menyikapi cobaan.",
+                "C. Sikap nekat karena tidak peduli.",
+                "D. Kurangnya 'iffah dalam menerima kenyataan.",
+                "E. Kegagalan dalam bertaubat."
+            ],
+            correct: 1
+        },
+        {
+            question: "Perbedaan utama antara orang yang 'berilmu' (alim) dan orang yang 'bijak' (hakim) adalah....",
+            options: [
+                "A. Orang berilmu pasti bijak, sedangkan orang bijak belum tentu berilmu.",
+                "B. Orang berilmu fokus pada teori, orang bijak fokus pada praktik.",
+                "C. Orang berilmu tahu 'apa' (what), sedangkan orang bijak tahu 'kapan', 'bagaimana', dan 'mengapa' (when, how, why) ilmu itu diterapkan.",
+                "D. Orang berilmu tinggal di kota, orang bijak tinggal di desa.",
+                "E. Orang berilmu berbicara keras, orang bijak berbicara lembut."
+            ],
+            correct: 2
+        },
+        {
+            question: "Kemampuan untuk diam pada saat yang tepat (ketika berbicara hanya akan memperkeruh suasana) adalah bagian dari....",
+            options: [
+                "A. Hikmah (kebijaksanaan).",
+                "B. Jubn (pengecut).",
+                "C. Tahawwur (nekat).",
+                "D. Ghadab (marah).",
+                "E. Riya' (pamer)."
+            ],
+            correct: 0
+        },
+        {
+            question: "Seorang pemimpin yang memberikan tugas berat kepada bawahan yang kompeten, dan tugas ringan kepada yang kurang kompeten, sedang menerapkan....",
+            options: [
+                "A. Sikap pilih kasih karena membeda-bedakan.",
+                "B. Sikap tidak adil karena tidak sama rata.",
+                "C. Sikap hikmah, karena menempatkan sesuatu pada tempatnya (proporsional).",
+                "D. Sikap 'iffah, karena menjaga perasaan.",
+                "E. Sikap pengecut, karena takut pada bawahan yang kompeten."
+            ],
+            correct: 2
+        },
+        {
+            question: "Salah satu cara utama untuk memperoleh hikmah adalah....",
+            options: [
+                "A. Dengan mengumpulkan harta sebanyak-banyaknya.",
+                "B. Dengan merenungkan (tafakkur) ciptaan Allah dan mengambil pelajaran dari pengalaman (i'tibar).",
+                "C. Dengan selalu memenangkan setiap argumen.",
+                "D. Dengan mengisolasi diri dari masyarakat.",
+                "E. Dengan mengandalkan keberuntungan semata."
+            ],
+            correct: 1
+        },
+        {
+            question: "Orang yang bijak akan menggunakan hartanya di jalan yang benar dan tidak kikir, namun juga tidak boros. Sikap ini menunjukkan bahwa hikmah adalah....",
+            options: [
+                "A. Sesuatu yang hanya dimiliki oleh orang kaya.",
+                "B. Jalan tengah (wasath) di antara dua ekstrem (kikir dan boros).",
+                "C. Sikap untuk tidak peduli sama sekali dengan harta.",
+                "D. Keberanian untuk menghabiskan semua harta.",
+                "E. Penyesalan karena memiliki harta."
+            ],
+            correct: 1
+        },
+        {
+            question: "Mampu memahami prioritas, membedakan mana yang lebih penting (aulawiyat) untuk didahulukan, adalah inti dari....",
+            options: [
+                "A. 'Adalah (Keadilan).",
+                "B. Syaja'ah (Keberanian).",
+                "C. Taubat (Kembali).",
+                "D. Hikmah (Kebijaksanaan) / Fiqh Aulawiyat.",
+                "E. 'Iffah (Menjaga diri)."
+            ],
+            correct: 3
+        },
+        {
+            question: "Seorang dai yang berdakwah di komunitas preman menggunakan bahasa yang lugas dan tidak kaku, berbeda saat ia berdakwah di depan akademisi. Ini adalah contoh....",
+            options: [
+                "A. Sikap tidak konsisten dalam berdakwah.",
+                "B. Sikap hikmah, yaitu berbicara kepada audiens sesuai dengan kadar pemahaman mereka.",
+                "C. Sikap 'iffah, karena menjaga lisan.",
+                "D. Sikap pengecut, karena takut pada preman.",
+                "E. Sikap riya', karena ingin dipuji oleh kedua kelompok."
+            ],
+            correct: 1
+        },
+        // 'Iffah (10 Soal)
+        {
+            question: "Sikap 'iffah (menjaga diri) paling tepat didefinisikan sebagai....",
+            options: [
+                "A. Kemampuan untuk mengendalikan hawa nafsu dan menjauhkan diri dari hal-hal yang tidak pantas atau haram.",
+                "B. Sikap ekstrem yang mengharamkan semua kesenangan duniawi.",
+                "C. Keberanian untuk melawan semua godaan dengan kekerasan.",
+                "D. Keadilan dalam membagi waktu antara dunia dan akhirat.",
+                "E. Penyesalan setelah melakukan perbuatan yang tidak pantas."
+            ],
+            correct: 0
+        },
+        {
+            question: "Seorang pejabat yang menolak fasilitas mewah dari kontraktor proyek, meskipun itu tidak tergolong suap, demi menjaga martabat jabatannya, sedang menerapkan....",
+            options: [
+                "A. Sikap kikir karena menolak pemberian.",
+                "B. Sikap syaja'ah karena berani menolak.",
+                "C. Sikap 'iffah dalam konteks harta dan jabatan.",
+                "D. Sikap hikmah karena tahu itu jebakan.",
+                "E. Sikap tidak adil kepada kontraktor."
+            ],
+            correct: 2
+        },
+        {
+            question: "Menundukkan pandangan (ghadul bashar) saat melihat lawan jenis yang bukan mahram adalah manifestasi dari....",
+            options: [
+                "A. 'Iffah (menjaga kesucian syahwat).",
+                "B. Jubn (pengecut karena tidak berani melihat).",
+                "C. 'Adalah (adil dalam memandang).",
+                "D. Hikmah (bijaksana dalam melihat).",
+                "E. Taubat (menyesal karena telah melihat)."
+            ],
+            correct: 0
+        },
+        {
+            question: "Menjaga lisan dari berkata kotor, mengumpat, atau mengghibah meskipun sedang sangat marah adalah bagian dari....",
+            options: [
+                "A. Syaja'ah (keberanian).",
+                "B. 'Iffah (menjaga kesucian lisan).",
+                "C. Hikmah (kebijaksanaan).",
+                "D. Taubat (penyesalan).",
+                "E. 'Adalah (keadilan)."
+            ],
+            correct: 1
+        },
+        {
+            question: "Seseorang yang hidup dalam kemiskinan namun menolak untuk meminta-minta atau mengemis kepada orang lain, adalah contoh....",
+            options: [
+                "A. Kesombongan karena tidak mau dibantu.",
+                "B. Kebodohan karena menyia-nyiakan kesempatan.",
+                "C. 'Iffah dalam konteks menjaga kehormatan diri (dari meminta-minta).",
+                "D. Kekikiran karena tidak mau menerima uang.",
+                "E. Putus asa dari rahmat Allah."
+            ],
+            correct: 2
+        },
+        {
+            question: "Dalam konteks media sosial, sikap 'iffah dapat diwujudkan dengan cara....",
+            options: [
+                "A. Mem-posting semua kegiatan pribadi secara rinci setiap jam.",
+                "B. Tidak mengunggah foto atau status yang mengumbar aurat, kemewahan, atau keluh kesah yang berlebihan.",
+                "C. Menggunakan akun anonim untuk menghujat orang lain.",
+                "D. Memblokir semua orang yang berbeda pendapat.",
+                "E. Mengumpulkan followers sebanyak-banyaknya dengan cara apapun."
+            ],
+            correct: 1
+        },
+        {
+            question: "Manfaat utama dari memiliki sikap 'iffah dalam pergaulan adalah....",
+            options: [
+                "A. Menjadi terisolasi dan tidak memiliki teman.",
+                "B. Dianggap aneh dan ketinggalan zaman oleh orang lain.",
+                "C. Terjaga kehormatannya, disegani, dan dipercaya oleh orang lain.",
+                "D. Mendapatkan banyak pujian palsu dari orang sekitar.",
+                "E. Menjadi pusat perhatian di setiap perkumpulan."
+            ],
+            correct: 2
+        },
+        {
+            question: "Sikap 'iffah adalah jalan tengah (wasath) antara dua sifat ekstrem, yaitu....",
+            options: [
+                "A. Keberanian (syaja'ah) dan kepengecutan (jubn).",
+                "B. Keadilan ('adalah) dan kezaliman (zulm).",
+                "C. Ketamakan/syahwat (syarah) dan kelemahan/impotensi (jumud).",
+                "D. Boros (israf) dan kikir (bakhil).",
+                "E. Sombong (takabbur) dan rendah diri (minder)."
+            ],
+            correct: 2
+        },
+        {
+            question: "Seorang pemuda menunda pernikahan karena belum mampu, namun ia menjaga dirinya dengan berpuasa dan menyibukkan diri. Tindakannya ini adalah implementasi dari....",
+            options: [
+                "A. Sikap 'iffah untuk menjaga kesucian diri.",
+                "B. Sikap putus asa karena tidak bisa menikah.",
+                "C. Sikap tidak adil terhadap diri sendiri.",
+                "D. Sikap pengecut karena takut pada komitmen.",
+                "E. Sikap kikir karena tidak mau mengeluarkan biaya."
+            ],
+            correct: 0
+        },
+        {
+            question: "Menjaga 'iffah dalam hal harta berarti....",
+            options: [
+                "A. Menghindari semua harta duniawi dan hidup sebagai pertapa.",
+                "B. Bekerja keras mencari nafkah yang halal dan menahan diri dari mengambil yang haram (korupsi, suap).",
+                "C. Mengambil semua harta yang bisa diambil selagi ada kesempatan.",
+                "D. Menghabiskan semua harta untuk bersenang-senang (boros).",
+                "E. Menyimpan semua harta dan tidak mengeluarkannya sama sekali (kikir)."
+            ],
+            correct: 1
+        },
+        // Syaja'ah (10 Soal)
+        {
+            question: "Perbedaan fundamental antara syaja'ah (keberanian) dan tahawwur (nekat) adalah....",
+            options: [
+                "A. Syaja'ah dilakukan di siang hari, tahawwur di malam hari.",
+                "B. Syaja'ah didasari pertimbangan akal sehat dan kebenaran, sedangkan tahawwur adalah keberanian buta tanpa perhitungan.",
+                "C. Syaja'ah hanya dimiliki oleh tentara, tahawwur dimiliki oleh masyarakat sipil.",
+                "D. Syaja'ah selalu berhasil, tahawwur selalu gagal.",
+                "E. Tidak ada perbedaan, keduanya adalah sinonim."
+            ],
+            correct: 1
+        },
+        {
+            question: "Bentuk syaja'ah yang paling sulit dan paling tinggi nilainya menurut hadis adalah....",
+            options: [
+                "A. Berani melawan sepuluh musuh sendirian di medan perang.",
+                "B. Berani mengatakan kebenaran (kalimatul haq) di depan penguasa yang zalim.",
+                "C. Berani berdebat dengan ulama besar.",
+                "D. Berani memanjat gunung tertinggi tanpa alat pengaman.",
+                "E. Berani mengambil risiko dalam bisnis."
+            ],
+            correct: 1
+        },
+        {
+            question: "Seorang siswa yang melihat temannya menyontek dan ia berani melaporkannya kepada guru demi keadilan, meskipun berisiko dijauhi temannya, sedang menerapkan....",
+            options: [
+                "A. Sikap syaja'ah (berani membela kebenaran).",
+                "B. Sikap mengadu domba (namimah).",
+                "C. Sikap 'iffah (menjaga pandangan).",
+                "D. Sikap hikmah (kebijaksanaan).",
+                "E. Sikap pengecut (jubn)."
+            ],
+            correct: 0
+        },
+        {
+            question: "Seseorang yang sangat marah hingga ingin memukul, namun ia berhasil menahan amarahnya dan memilih berbicara baik-baik, adalah contoh....",
+            options: [
+                "A. Kelemahan, karena ia tidak jadi memukul.",
+                "B. Syaja'ah nafsiyyah (keberanian melawan hawa nafsu).",
+                "C. 'Adalah (keadilan), karena ia adil pada lawannya.",
+                "D. Taubat, karena ia menyesal.",
+                "E. Riya', karena ia ingin dipuji."
+            ],
+            correct: 1
+        },
+        {
+            question: "Syaja'ah (keberanian) adalah jalan tengah (wasath) antara dua sifat ekstrem, yaitu....",
+            options: [
+                "A. Boros (israf) dan kikir (bakhil).",
+                "B. Sombong (takabbur) dan rendah diri (minder).",
+                "C. Nekat (tahawwur) dan pengecut (jubn).",
+                "D. Keadilan ('adalah) dan kezaliman (zulm).",
+                "E. Tamak (syarah) dan lemah syahwat (jumud)."
+            ],
+            correct: 2
+        },
+        {
+            question: "Berani mengakui kesalahan yang telah dilakukan, meskipun akan mendapat sanksi atau malu, adalah bentuk dari....",
+            options: [
+                "A. Syaja'ah (keberanian).",
+                "B. Hikmah (kebijaksanaan).",
+                "C. 'Iffah (menjaga diri).",
+                "D. 'Adalah (keadilan).",
+                "E. Tahawwur (nekat)."
+            ],
+            correct: 0
+        },
+        {
+            question: "Seorang wartawan yang berani mengungkap kasus korupsi besar meskipun mendapat ancaman dari pihak-pihak kuat, sedang menunjukkan....",
+            options: [
+                "A. Sikap mencari sensasi agar terkenal.",
+                "B. Sikap nekat yang membahayakan nyawa.",
+                "C. Sikap syaja'ah dalam profesi (membela kebenaran).",
+                "D. Sikap tidak adil karena membuka aib orang.",
+                "E. Sikap 'iffah karena menjaga lisan."
+            ],
+            correct: 2
+        },
+        {
+            question: "Keberanian yang tidak didasari oleh kebenaran (misalnya, berani merampok bank) disebut....",
+            options: [
+                "A. Syaja'ah haqiqiyyah (keberanian sejati).",
+                "B. Hikmah (kebijaksanaan).",
+                "C. Tahawwur (nekat) atau fasad (kerusakan).",
+                "D. 'Iffah (menjaga diri).",
+                "E. 'Adalah (keadilan)."
+            ],
+            correct: 2
+        },
+        {
+            question: "Sikap 'itsar (mendahulukan orang lain) seperti memberikan makanan terakhir kita kepada orang yang lebih lapar, membutuhkan....",
+            options: [
+                "A. Syaja'ah (keberanian melawan egoisme) dan 'adalah.",
+                "B. Taubat dan 'iffah.",
+                "C. Hikmah dan tahawwur.",
+                "D. Jubn (pengecut) dan bakhil (kikir).",
+                "E. Israf (boros) dan riya' (pamer)."
+            ],
+            correct: 0
+        },
+        {
+            question: "Sumber utama yang menumbuhkan syaja'ah (keberanian) dalam diri seorang muslim adalah....",
+            options: [
+                "A. Kekuatan fisik dan otot yang besar.",
+                "B. Jumlah harta dan pengikut yang banyak.",
+                "C. Keyakinan (iman) yang kuat kepada Allah dan hari akhir.",
+                "D. Kemarahan yang meluap-luap.",
+                "E. Keinginan untuk dipuji sebagai pahlawan."
+            ],
+            correct: 2
+        },
+        // 'Adalah (10 Soal)
+        {
+            question: "Prinsip utama 'adalah (keadilan) adalah 'menempatkan sesuatu pada tempatnya' (proporsional). Ini berarti....",
+            options: [
+                "A. Semua orang harus mendapatkan bagian yang sama rata dalam segala hal.",
+                "B. Orang yang bekerja lebih keras berhak mendapatkan hasil lebih banyak daripada yang bermalas-malasan.",
+                "C. Yang kuat selalu menang dan yang lemah selalu kalah.",
+                "D. Hukum hanya berlaku untuk rakyat kecil, bukan untuk pejabat.",
+                "E. Semua keputusan harus didasarkan pada perasaan suka atau tidak suka."
+            ],
+            correct: 1
+        },
+        {
+            question: "Perbedaan esensial antara 'adalah (keadilan proporsional) dan 'musawah' (persamaan) adalah....",
+            options: [
+                "A. 'Adalah hanya untuk muslim, musawah untuk non-muslim.",
+                "B. 'Adalah bersifat proporsional (sesuai hak/kewajiban), sedangkan musawah adalah persamaan (misal dalam status sebagai warga negara) tanpa membedakan.",
+                "C. 'Adalah berarti sama rata, musawah berarti proporsional.",
+                "D. 'Adalah hanya diterapkan dalam hukum, musawah dalam ekonomi.",
+                "E. Tidak ada perbedaan, keduanya sama persis."
+            ],
+            correct: 1
+        },
+        {
+            question: "Seorang hakim memberikan vonis bebas kepada anak pejabat yang terbukti bersalah, namun menghukum berat rakyat kecil dengan kasus yang sama. Hakim ini telah melanggar prinsip....",
+            options: [
+                "A. 'Adalah (keadilan).",
+                "B. Syaja'ah (keberanian).",
+                "C. 'Iffah (menjaga diri).",
+                "D. Hikmah (kebijaksanaan).",
+                "E. Taubat (penyesalan)."
+            ],
+            correct: 0
+        },
+        {
+            question: "Bentuk keadilan ('adalah) yang paling tinggi dan paling fundamental adalah....",
+            options: [
+                "A. Adil dalam membagi warisan.",
+                "B. Adil dalam memutuskan perkara di pengadilan.",
+                "C. Adil terhadap Allah, yaitu dengan mentauhidkan-Nya dan tidak menyekutukan-Nya.",
+                "D. Adil terhadap diri sendiri dengan tidur yang cukup.",
+                "E. Adil terhadap hewan dengan memberinya makan."
+            ],
+            correct: 2
+        },
+        {
+            question: "Memberikan kesaksian yang jujur di pengadilan, meskipun kesaksian itu akan merugikan sahabat dekat kita sendiri, adalah manifestasi dari....",
+            options: [
+                "A. Sikap tidak setia kawan.",
+                "B. Sikap 'adalah (keadilan) dan syaja'ah (keberanian).",
+                "C. Sikap hikmah, karena lebih baik mengorbankan teman.",
+                "D. Sikap 'iffah, karena menjaga lisan.",
+                "E. Sikap taubat atas dosa teman."
+            ],
+            correct: 1
+        },
+        {
+            question: "Seorang ayah memberikan uang jajan yang berbeda kepada anaknya yang SMA dan yang SD, disesuaikan dengan kebutuhan masing-masing. Tindakan ayah ini adalah....",
+            options: [
+                "A. Tidak adil, karena tidak sama rata.",
+                "B. Adil ('adalah), karena proporsional sesuai kebutuhan.",
+                "C. Kikir, karena memberi uang jajan.",
+                "D. Boros, karena memberi uang kepada kedua anaknya.",
+                "E. Pengecut, karena takut dimarahi anaknya yang SMA."
+            ],
+            correct: 1
+        },
+        {
+            question: "Sikap 'adalah terhadap diri sendiri (adil pada diri) contohnya adalah....",
+            options: [
+                "A. Bekerja 24 jam sehari tanpa istirahat untuk mencari harta.",
+                "B. Memenuhi hak tubuh (istirahat, makan halal), hak akal (ilmu), dan hak ruh (ibadah) secara seimbang.",
+                "C. Hanya beribadah terus menerus dan melupakan hak tubuh untuk makan.",
+                "D. Hanya bersenang-senang dan melupakan kewajiban ibadah.",
+                "E. Menghukum diri sendiri secara fisik atas setiap kesalahan kecil."
+            ],
+            correct: 1
+        },
+        {
+            question: "Dampak sosial terbesar jika 'adalah (keadilan) tidak ditegakkan dalam suatu masyarakat adalah....",
+            options: [
+                "A. Masyarakat akan menjadi sangat religius.",
+                "B. Masyarakat akan menjadi sangat kaya secara merata.",
+                "C. Akan timbul kekacauan, kecemburuan sosial, dan konflik.",
+                "D. Teknologi akan berkembang sangat pesat.",
+                "E. Semua orang akan hidup dalam damai."
+            ],
+            correct: 2
+        },
+        {
+            question: "Prinsip 'adalah dalam Islam menuntut bahwa kebencian kita terhadap suatu kaum tidak boleh....",
+            options: [
+                "A. Mendorong kita untuk berlaku tidak adil terhadap mereka.",
+                "B. Dilaporkan kepada pihak berwajib.",
+                "C. Disimpan di dalam hati.",
+                "D. Diketahui oleh kaum tersebut.",
+                "E. Membuat kita berhenti membenci mereka."
+            ],
+            correct: 0
+        },
+        {
+            question: "'Adalah (keadilan) adalah jalan tengah (wasath) antara dua ekstrem, yaitu....",
+            options: [
+                "A. Nekat (tahawwur) dan pengecut (jubn).",
+                "B. Berbuat zalim (kezaliman) dan menerima kezaliman (dizalimi).",
+                "C. Boros (israf) dan kikir (bakhil).",
+                "D. Sombong (takabbur) dan rendah diri (minder).",
+                "E. Tamak (syarah) dan lemah (jumud)."
+            ],
+            correct: 1
+        },
+    ];
+
+
+    // --- VARIABEL GLOBAL ---
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedQuestions = [];
+    let selectedOption = null;
+    let userName = "";
+    let userClass = "";
+    let userAnswers = []; // <-- Variabel baru untuk menyimpan jawaban
+
+    // --- ELEMEN DOM ---
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const userInfoModal = document.getElementById('userInfoModal');
+    const userInfoForm = document.getElementById('userInfoForm');
+    const submitInfoBtn = document.getElementById('submitInfoBtn');
+    
+    const quizModal = document.getElementById('quizModal');
+    const questionCounter = document.getElementById('questionCounter');
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+    const prevQuestionBtn = document.getElementById('prevQuestionBtn'); // <-- Elemen baru
+
+    const resultModal = document.getElementById('resultModal');
+    const resultCard = document.getElementById('resultCard'); // Untuk screenshot
+    const resultName = document.getElementById('resultName');
+    const resultClass = document.getElementById('resultClass');
+    const resultScore = document.getElementById('resultScore');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const waBtn = document.getElementById('waBtn');
+
+    // --- FUNGSI FULLSCREEN ---
+    const elem = document.documentElement;
+    function openFullscreen() {
+        // Fitur ini dibatasi oleh kebijakan izin di beberapa lingkungan (seperti iframe)
+        // console.log("Mencoba masuk mode layar penuh...");
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+    }
+
+    function closeFullscreen() {
+        // console.log("Mencoba keluar dari mode layar penuh...");
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+
+    // --- FUNGSI KUIS UTAMA ---
+
+    // 1. Acak Soal
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // 2. Tampilkan Modal Info
+    startQuizBtn.addEventListener('click', () => {
+        userInfoModal.classList.remove('hidden');
+    });
+
+    // 3. Submit Info & Mulai Kuis
+    userInfoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        userName = document.getElementById('userName').value;
+        userClass = document.getElementById('userClass').value;
+        
+        if (userName.trim() && userClass.trim()) {
+            userInfoModal.classList.add('hidden');
+            startQuiz();
+        }
+    });
+
+    // 4. Logika Memulai Kuis
+    function startQuiz() {
+        // Reset state
+        currentQuestionIndex = 0;
+        score = 0;
+        selectedOption = null;
+        
+        // Acak dan ambil 20 soal
+        selectedQuestions = shuffleArray([...quizData]).slice(0, 20);
+        userAnswers = new Array(selectedQuestions.length).fill(null); // <-- Inisialisasi array jawaban
+        
+        // Masuk fullscreen
+        openFullscreen(); // Mencoba masuk mode layar penuh
+        
+        // Tampilkan modal kuis
+        quizModal.classList.remove('hidden');
+        
+        // Muat soal pertama
+        loadQuestion();
+    }
+
+    // 5. Muat Soal
+    function loadQuestion() {
+        // Reset pilihan
+        selectedOption = userAnswers[currentQuestionIndex]; // <-- Muat jawaban yang tersimpan
+        
+        const question = selectedQuestions[currentQuestionIndex];
+        
+        questionCounter.innerText = `Soal ${currentQuestionIndex + 1} dari 20`;
+        questionText.innerText = question.question;
+        
+        optionsContainer.innerHTML = ""; // Kosongkan opsi sebelumnya
+        
+        question.options.forEach((option, index) => {
+            const optionElement = document.createElement('div');
+            optionElement.classList.add('quiz-option', 'p-4', 'border-2', 'border-gray-300', 'rounded-lg', 'cursor-pointer', 'text-gray-800');
+            optionElement.innerHTML = `${option}`; // <-- Menghapus duplikasi huruf
+            
+            optionElement.addEventListener('click', () => selectAnswer(optionElement, index));
+            
+            // Tampilkan jawaban yang sudah dipilih sebelumnya
+            if (index === selectedOption) {
+                optionElement.classList.add('selected', 'bg-blue-100', 'border-blue-500');
+            }
+            
+            optionsContainer.appendChild(optionElement);
+        });
+
+        // Update tombol
+        if (currentQuestionIndex === selectedQuestions.length - 1) {
+            nextQuestionBtn.innerText = "Selesai";
+        } else {
+            nextQuestionBtn.innerText = "Selanjutnya";
+        }
+        
+        // Tampilkan/sembunyikan tombol "Sebelumnya"
+        if (currentQuestionIndex === 0) {
+            prevQuestionBtn.classList.add('hidden');
+        } else {
+            prevQuestionBtn.classList.remove('hidden');
+        }
+    }
+
+    // 6. Pilih Jawaban
+    function selectAnswer(optionElement, index) {
+        // Hapus kelas 'selected' dari semua opsi
+        Array.from(optionsContainer.children).forEach(child => {
+            child.classList.remove('selected', 'bg-blue-100', 'border-blue-500');
+        });
+        
+        // Tambahkan kelas 'selected' ke yang diklik
+        optionElement.classList.add('selected', 'bg-blue-100', 'border-blue-500');
+        
+        // Simpan jawaban
+        selectedOption = index;
+        userAnswers[currentQuestionIndex] = index; // <-- Simpan jawaban ke array
+    }
+
+    // 7. Tombol Soal Selanjutnya
+    nextQuestionBtn.addEventListener('click', () => {
+        // Pindah ke soal berikutnya
+        if (currentQuestionIndex < selectedQuestions.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
+        } else {
+            // Kuis selesai
+            showResults();
+        }
+    });
+    
+    // 7b. Tombol Soal Sebelumnya
+    prevQuestionBtn.addEventListener('click', () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadQuestion();
+        }
+    });
+
+    // 8. Tampilkan Hasil
+    function showResults() {
+        // Keluar dari fullscreen
+        closeFullscreen(); // Mencoba keluar dari mode layar penuh
+        
+        // Sembunyikan modal kuis
+        quizModal.classList.add('hidden');
+        
+        // Hitung skor dari array jawaban
+        score = 0;
+        for (let i = 0; i < selectedQuestions.length; i++) {
+            if (userAnswers[i] === selectedQuestions[i].correct) {
+                score++;
+            }
+        }
+        
+        // Hitung skor akhir
+        const finalScore = Math.round((score / selectedQuestions.length) * 100);
+        
+        // Tampilkan data di modal hasil
+        resultName.innerText = userName;
+        resultClass.innerText = `Kelas: ${userClass}`;
+        resultScore.innerText = finalScore;
+        
+        // Tampilkan modal hasil
+        resultModal.classList.remove('hidden');
+    }
+
+    // --- FUNGSI TOMBOL HASIL ---
+
+    // 9. Unduh Hasil
+    downloadBtn.addEventListener('click', () => {
+        html2canvas(resultCard, { 
+            scale: 2, // Meningkatkan resolusi
+            useCORS: true 
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = `hasil_kuis_akhlak_${userName.replace(/\s/g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    });
+
+    // 10. Kirim Hasil ke WhatsApp
+    waBtn.addEventListener('click', () => {
+        const finalScore = resultScore.innerText;
+        const phoneNumber = "6285888892326"; // Nomor WA tujuan
+        
+        // Format pesan
+        const message = `Halo, saya telah menyelesaikan Kuis Akhlak Mulia.
+Nama: ${userName}
+Kelas: ${userClass}
+Skor: ${finalScore}`;
+        
+        // Buat URL WhatsApp
+        const waUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+        
+        // Buka WhatsApp di tab baru
+        window.open(waUrl, '_blank');
+    });
+
+</script>
+
+</body>
+</html>
+
+
+
+
