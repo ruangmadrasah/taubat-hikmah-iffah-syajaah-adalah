@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon-32x32.png">
     <!-- Memuat html2canvas untuk fitur unduh hasil -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
@@ -894,7 +893,9 @@
         // Fitur ini dibatasi oleh kebijakan izin di beberapa lingkungan (seperti iframe)
         // console.log("Mencoba masuk mode layar penuh...");
         if (elem.requestFullscreen) {
-            elem.requestFullscreen();
+            elem.requestFullscreen().catch(err => {
+                // console.warn(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            });
         } else if (elem.mozRequestFullScreen) { // Firefox
             elem.mozRequestFullScreen();
         } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
@@ -907,7 +908,9 @@
     function closeFullscreen() {
         // console.log("Mencoba keluar dari mode layar penuh...");
         if (document.exitFullscreen) {
-            document.exitFullscreen();
+            document.exitFullscreen().catch(err => {
+                // console.warn(`Error attempting to disable full-screen mode: ${err.message} (${err.name})`);
+            });
         } else if (document.mozCancelFullScreen) { // Firefox
             document.mozCancelFullScreen();
         } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
@@ -916,6 +919,27 @@
             document.msExitFullscreen();
         }
     }
+
+    // --- FUNGSI BARU: Deteksi Keluar Fullscreen ---
+    function handleFullscreenChange() {
+        const isFullscreen = document.fullscreenElement ||
+                           document.webkitFullscreenElement ||
+                           document.mozFullScreenElement ||
+                           document.msFullscreenElement;
+
+        // Jika tidak dalam mode fullscreen (misal: tekan Esc) DAN modal kuis sedang aktif
+        if (!isFullscreen && !quizModal.classList.contains('hidden')) {
+            // console.log("Fullscreen exited, stopping quiz.");
+            showResults(); // Hentikan kuis dan tampilkan hasil
+        }
+    }
+
+    // --- Tambahkan Event Listeners untuk Fullscreen ---
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
 
     // --- FUNGSI KUIS UTAMA ---
 
@@ -1045,8 +1069,11 @@
 
     // 8. Tampilkan Hasil
     function showResults() {
-        // Keluar dari fullscreen
-        closeFullscreen(); // Mencoba keluar dari mode layar penuh
+        // Hanya panggil closeFullscreen jika masih dalam mode fullscreen
+        const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+        if (isFullscreen) {
+            closeFullscreen(); // Mencoba keluar dari mode layar penuh
+        }
         
         // Sembunyikan modal kuis
         quizModal.classList.add('hidden');
@@ -1108,7 +1135,4 @@ Skor: ${finalScore}`;
 
 </body>
 </html>
-
-
-
 
